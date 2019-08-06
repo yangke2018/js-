@@ -1,0 +1,26 @@
+参考资料：
+https://segmentfault.com/a/1190000011145364
+
+一、什么是跨域？
+  1、概念 
+    跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。
+  2、什么是同源策略？
+  "协议+域名+端口"三者相同
+  
+二、跨域解决方案
+  1、 通过jsonp跨域
+  
+  2、 document.domain + iframe跨域
+    此方案仅限主域相同，子域不同的跨域应用场景。
+    实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。
+    
+  3、 location.hash + iframe
+  
+  4、 window.name + iframe跨域
+  5、 postMessage跨域
+  6、 跨域资源共享（CORS）
+      CORS也已经成为主流的跨域解决方案。
+      
+  7、 nginx代理跨域
+  8、 nodejs中间件代理跨域
+  9、 WebSocket协议跨域  
