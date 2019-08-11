@@ -71,6 +71,26 @@ https://www.cnblogs.com/goloving/p/9297019.html
   一般会出现问题的情况有两种：
   定时器： 定时器中this指向window
   事件
+  
+六、原型链
+  1、对象
+    普通对象：
+      最普通的对象：有__proto__属性（指向其原型链），没有prototype属性。
+      原型对象(person.prototype 原型对象还有constructor属性（指向构造函数对象）)
+      
+    函数对象 ：凡是通过new Function()创建的都是函数对象
+      拥有__proto__、prototype属性（指向原型对象）。
+      Function、Object、Array、Date、String、自定义函数
+      特例： Function.prototype(是原型对象，却是函数对象，下面会有解释)
+      
+   2、关系
+   
+   构造函数 <--(constructor) 原型对象 <--( _proto_ ) 实例对象
+   
+   3、原型链
+   
+   原型链是实现继承的主要方法。
+
       
       
   
