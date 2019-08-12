@@ -2,6 +2,7 @@
 https://www.cnblogs.com/jnslove/p/7028487.html
 https://www.cnblogs.com/goloving/p/9297019.html
 https://www.cnblogs.com/Grace-zyy/p/8206002.html
+https://www.cnblogs.com/annika/p/9073572.html
 
 一、概念
   什么是面向对象编程（OOP）？用对象的思想去写代码，就是面向对象编程。
@@ -219,7 +220,20 @@ https://www.cnblogs.com/Grace-zyy/p/8206002.html
       var sub1 = Sub();
       console.log(sub1.age) // 10
         
-      重点：修复了组合继承的问题     
+      重点：修复了组合继承的问题   
+      
+      7、es6 class 继承
+        class Colorpoint extends Point {
+        constructor(x,y,color){
+          super(x,y); //调用父类的constructor(x,y)
+          this.color = color
+        }
+        toString(){
+          //调用父类的方法
+          return this.color + ' ' + super.toString(); 
+        }
+        }
+      
         
         
     
