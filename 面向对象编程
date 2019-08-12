@@ -172,10 +172,54 @@ https://www.cnblogs.com/Grace-zyy/p/8206002.html
 
         特点：类似于复制一个对象，用函数来包装。
 
-        缺点：1、所有实例都会继承原型上的属性。
+        缺点：1）、所有实例都会继承原型上的属性。
 
-        2、无法实现复用。（新实例属性都是后面添加的）
+             2）、无法实现复用。（新实例属性都是后面添加的）
+             
+     5、寄生式继承
+     
+        function content(obj){
+            function F(){}
+            F.prototype=obj
+            return new F()
+        }
+        var sup = new Person()
+        function subobject(obj){
+          var  sub = content(obj);
+          sub.name = 'gar';
+          retrun sub
+        }
+        var sup2 = subobject(sup);
         
+        重点：就是给原型式继承外面套了个壳子。
+
+        优点：没有创建自定义类型，因为只是套了个壳子返回对象（这个），这个函数顺理成章就成了创建的新对象。
+
+        缺点：没用到原型，无法复用。
+        
+        
+      6、寄生组合式继承（常用）
+      寄生：在函数内返回对象然后调用
+      组合：1）函数的原型等于另一个实例。
+           2) 在函数中用apply或者call引入另一个构造函数，可传参　
+           
+      function content(obj){
+            function F(){}
+            F.prototype=obj
+            return new F()
+        }
+      var con = content(Person.prototype) //只继承了原型属性
+      //组合
+      function Sub(){
+        Person.Call(this)//继承父类构造函数属性
+      }
+      //重点
+      Sub.prototype = con; //继承con实例
+      con.constuctor = Sub; //一定要修复实例
+      var sub1 = Sub();
+      console.log(sub1.age) // 10
+        
+      重点：修复了组合继承的问题     
         
         
     
