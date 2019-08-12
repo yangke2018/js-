@@ -29,5 +29,9 @@ https://www.toutiao.com/i6723494735199076877/?tt_from=weixin&utm_campaign=client
  3、伪数组 转化为标准数组
  改变数组自身内容：push()、pop()、shift()、unshift()、reverse()、splic()、sort()、copyWithin()、fill()
  获取数组属性或索引值：length、indexOf()、lastindexOf()、find()、findIndex()、filter()
+ 针对每个数据项处理：forEach()
+ 产生新的数组或新的值：join()、concat()、slice()、map()、reduce()、reduceRight()、flat（）flatMap()、Array.form()、Array.of()、toString()
+ 布尔判断：every()、some（）、includes()、Array.isArray()
+ 其他方法：keys()、valueOf()
  
  
