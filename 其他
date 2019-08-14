@@ -1,0 +1,45 @@
+参考资料：
+https://www.jianshu.com/p/9c95db596df5
+一、强缓存协商缓存
+    1、强缓存
+        缓存的优点：
+            减少了不必要的数据传输，节省带宽
+            减少服务器的负担，提升网站性能
+            加快了客户端加载网页的速度
+            用户体验友好
+        缺点：资源如果有更改但是客户端不及时更新会造成用户获取信息滞后，如果老版本有bug的话，情况会更加糟糕。
+
+        1）强缓存
+        强制、如：cahe-control:max-age=315360000,public,immutable
+        总结：
+        1.1 cache-control: max-age=xxxx，public
+            客户端和代理服务器都可以缓存该资源，如果用户做了刷新操作，就向服务器发起http请求
+        1.2 cache-control: max-age=xxxx，private
+            只让客户端可以缓存该资源；代理服务器不缓存
+        1.3 cache-control: max-age=xxxx，immutable
+            用户做了刷新操作，也不向服务器发起http请求
+        1.4 cache-control: no-cache
+            跳过设置强缓存，但是不妨碍设置协商缓存
+        1.5 cache-control: no-store
+            不缓存，这个会让客户端、服务器都不缓存，也就没有所谓的强缓存、协商缓存了。
+     
+     2、协商缓存
+     
+        etag: '5c20abbd-e2e8'
+        last-modified: Mon, 24 Dec 2018 09:49:49 GMT
+        
+        过程：发请求-->看资源是否过期-->过期-->请求服务器-->服务器对比资源是否真的过期-->没过期-->返回304状态码-->客户端用缓存的老资源。
+        
+      3、怎么设置强缓存与协商缓存
+
+            后端服务器如nodejs:
+            res.setHeader('max-age': '3600 public')
+            res.setHeader(etag: '5c20abbd-e2e8')
+            res.setHeader('last-modified': Mon, 24 Dec 2018 09:49:49 GMT)
+
+            nginx配置 。。。
+            
+
+
+
+    
