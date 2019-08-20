@@ -1,5 +1,6 @@
 参考资料：
 https://blog.csdn.net/liuxing393724034/article/details/83506977
+https://www.cnblogs.com/youhong/p/6899466.html
 
 1、涉及的知识点众多，包括变量定义提升、this指针指向、运算符优先级、原型、继承、全局变量污染、对象属性及原型属性优先级等等。
   function Foo(){
@@ -31,3 +32,23 @@ https://blog.csdn.net/liuxing393724034/article/details/83506977
   new Foo.getName();    //2
   new Foo().getName();    //3
   new new Foo().getName();  //3
+ 
+ 2、如果出现多个一逗号为间隔的判断依据，则以分号前的最后一项为准。
+  for(i=0, j=0; i<4, j<6; i++, j++){
+   k = i + j;
+  }
+  console.log(k); //10
+  
+  3、词法作用域让fun()中的a通过RHS引用到了全局作用域中的a，因此会输出1
+  function fun() {
+ 　　console.log( a );
+　　}
+　　function bar() {
+　　var a = 0;
+　　fun();
+　　}
+　　var a = 1;
+　　bar(); //1
+  
+ 4、浅析jQuery基本结构($实现原理)、js实现链式操作
+ 
