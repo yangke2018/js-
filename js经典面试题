@@ -52,5 +52,42 @@ https://www.cnblogs.com/youhong/p/6899466.html
   
  4、浅析jQuery基本结构($实现原理)、js实现链式操作
  
+ 5、基本类型值的传递如同基本类型变量的复制一样，而引用类型值的传递，则如同引用类型变量的复制一样。访问变量有按值和按引用两种方式，而参数只能按值传递。
+ function changeObjectProperty (o) {
+                o.siteUrl = "http://www.csser.com/";
+                o = new Object();   
+                o.siteUrl = "http://www.popcg.com/";
+            }
+            var CSSer = new Object(); 
+            changeObjectProperty(CSSer);
+            console.log(CSSer.siteUrl); //打印http://www.csser.com/
+   
+   6、闭包、作用域
+   
+   var buttons = [{name:'b1'},{name:'b2'},{name:'b3'}];
+            function bind(){
+                for (var i = 0; i < buttons.length; i++) {
+                   buttons[i].onclick = function() {
+                       console.log(i);
+                   }
+                }
+            };
+            bind();
+            buttons[0].onclick();//3
+            buttons[1].onclick();//3
+            buttons[2].onclick();//3          
+            
+  var buttons = [{name:'b1'},{name:'b2'},{name:'b3'}];
+               function bind(){
+                  for (var i = 0; i < buttons.length; i++) {
+                      buttons[i].onclick = (function (i){
+                         console.log(i)
+                      }(i));
+                  }
+               };
+                bind();
+               buttons[0].onclick;//0
+               buttons[1].onclick;//1
+               buttons[2].onclick;//2
  
  
