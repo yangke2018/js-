@@ -1,3 +1,5 @@
+参考资料：https://ts.xcatliu.com/basics/any
+
 一、简介
   1、什么是TypeScript
     TypeScript 是 JavaScript 的一个超集，主要提供了类型系统和对 ES6 的支持，它由 Microsoft 开发，代码开源于 GitHub 上。
@@ -16,4 +18,80 @@
    
  
  二、基础
-  1、
+  1、原始数据类型
+  布尔值、数值、字符串、null、undefined 以及 ES6 中的新类型 Symbol。
+  列：let isDone: boolean = false;
+  
+  2、任意值（Any）用来表示允许赋值为任意类型。
+  let myFavoriteNumber: any = 'seven';
+  myFavoriteNumber = 7;
+  
+  3、类型推论
+  如果没有明确的指定类型，那么 TypeScript 会依照类型推论（Type Inference）的规则推断出一个类型。
+  如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查：
+  let myFavoriteNumber;
+  myFavoriteNumber = 'seven';
+  myFavoriteNumber = 7;
+  
+  4、联合类型
+  联合类型（Union Types）表示取值可以为多种类型中的一种。
+  let myFavoriteNumber: string | number;
+  myFavoriteNumber = 'seven';
+  myFavoriteNumber = 7;
+  
+  5、对象的类型——接口
+  在 TypeScript 中，我们使用接口（Interfaces）来定义对象的类型。
+  例子：
+  interface Person {
+      name: string;
+      age: number;
+  }
+
+  let tom: Person = {
+      name: 'Tom',
+      age: 25
+  };
+  
+    1）可选属性
+    interface Person {
+    name: string;
+    age?: number;
+    }
+
+    let tom: Person = {
+        name: 'Tom'
+    };
+    
+    2）任意属性
+    interface Person {
+    name: string;
+    age?: number;
+    [propName: string]: any;
+    }
+
+    let tom: Person = {
+        name: 'Tom',
+        gender: 'male'
+    };
+    
+    3）只读属性
+    interface Person {
+    readonly id: number;
+    name: string;
+    age?: number;
+    [propName: string]: any;
+    }
+
+    let tom: Person = {
+        id: 89757,
+        name: 'Tom',
+        gender: 'male'
+    };
+  
+  
+  
+  
+  
+  
+  
+  
