@@ -111,6 +111,115 @@
     
     
   7、函数的类型  
+  在 JavaScript 中，有两种常见的定义函数的方式——函数声明（Function Declaration）和函数表达式（Function Expression）
+  例：
+  function sum(x: number, y: number): number {
+    return x + y;
+  }
+  注意：
+  输入多余的（或者少于要求的）参数，是不被允许的：
+  
+  函数表达式
+  let mySum = function (x: number, y: number): number {
+    return x + y;
+  };
+  
+  let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
+    return x + y;
+  };
+  
+  用接口定义函数的形状
+  interface SearchFunc {
+    (source: string, subString: string): boolean;
+  }
+
+  let mySearch: SearchFunc;
+  mySearch = function(source: string, subString: string) {
+      return source.search(subString) !== -1;
+  }
+
+  可选参数
+  function buildName(firstName: string, lastName?: string) {
+    if (lastName) {
+        return firstName + ' ' + lastName;
+    } else {
+        return firstName;
+    }
+  }
+  let tomcat = buildName('Tom', 'Cat');
+  let tom = buildName('Tom');
+  注意：可选参数后面不允许再出现必须参数了
+  
+  参数默认值：
+  在 ES6 中，我们允许给函数的参数添加默认值，TypeScript 会将添加了默认值的参数识别为可选参数：
+  function buildName(firstName: string, lastName: string = 'Cat') {
+    return firstName + ' ' + lastName;
+  }
+  let tomcat = buildName('Tom', 'Cat');
+  let tom = buildName('Tom');
+  注意：此时就不受「可选参数必须接在必需参数后面」的限制了
+  
+  剩余参数
+  ES6 中，可以使用 ...rest 的方式获取函数中的剩余参数（rest 参数）
+  function push(array, ...items) {
+    items.forEach(function(item) {
+        array.push(item);
+    });
+  }
+
+  let a = [];
+  push(a, 1, 2, 3);
+  
+  重载：
+  重载允许一个函数接受不同数量或类型的参数时，作出不同的处理。
+  例子：
+  function reverse(x: number): number;
+  function reverse(x: string): string;
+  function reverse(x: number | string): number | string {
+      if (typeof x === 'number') {
+          return Number(x.toString().split('').reverse().join(''));
+      } else if (typeof x === 'string') {
+          return x.split('').reverse().join('');
+      }
+  }
+  
+  8、类型断言
+  类型断言（Type Assertion）可以用来手动指定一个值的类型。
+  <类型>值 
+  值 as 类型
+  function getLength(something: string | number): number {
+    if ((<string>something).length) {
+        return (<string>something).length;
+    } else {
+        return something.toString().length;
+    }
+  }
+  
+  
+  9、声明文件
+  当使用第三方库时，我们需要引用它的声明文件，才能获得对应的代码补全、接口提示等功能。
+  
+  1）什么是声明语句
+  例：
+  declare var jQuery: (selector: string) => any;
+  jQuery('#foo');
+  
+  2）什么是声明文件
+  通常我们会把声明语句放到一个单独的文件（jQuery.d.ts）中
+  
+  3）第三方声明文件
+  npm install @types/jquery --save-dev
+  
+  4）书写声明文件
+  
+  
+  10、内置对象
+  1）ECMAScript 的内置对象
+  Boolean、Error、Date、RegExp 等
+  
+  2）DOM 和 BOM 的内置对象
+  Document、HTMLElement、Event、NodeList 等
+  
   
   
   
