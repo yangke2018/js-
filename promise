@@ -1,0 +1,64 @@
+参考资料：
+https://www.cnblogs.com/whybxy/p/7645578.html
+
+ES6 Promise 用法讲解
+
+    Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有then、catch等同样很眼熟的方法。
+    1、那就new一个
+    function runAsync(){
+        var p = new Promise(function(resolve, reject){
+            //做一些异步操作
+            setTimeout(function(){
+                console.log('执行完成');
+                resolve('随便什么数据');
+            }, 2000);
+        });
+        return p;            
+    }
+    runAsync()
+    
+    2、链式操作的用法
+    
+    function runAsync1(){
+    var p = new Promise(function(resolve, reject){
+        //做一些异步操作
+        setTimeout(function(){
+            console.log('异步任务1执行完成');
+            resolve('随便什么数据1');
+        }, 1000);
+    });
+    return p;            
+    }
+    function runAsync2(){
+        var p = new Promise(function(resolve, reject){
+            //做一些异步操作
+            setTimeout(function(){
+                console.log('异步任务2执行完成');
+                resolve('随便什么数据2');
+            }, 2000);
+        });
+        return p;            
+    }
+    function runAsync3(){
+        var p = new Promise(function(resolve, reject){
+            //做一些异步操作
+            setTimeout(function(){
+                console.log('异步任务3执行完成');
+                resolve('随便什么数据3');
+            }, 2000);
+        });
+        return p;            
+    }
+    
+    runAsync1()
+    .then(function(data){
+        console.log(data);
+        return runAsync2();
+    })
+    .then(function(data){
+        console.log(data);
+        return runAsync3();
+    })
+    .then(function(data){
+        console.log(data);
+    });
