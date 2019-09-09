@@ -1,5 +1,7 @@
 参考资料：https://www.runoob.com/js/js-regexp.html
+https://www.runoob.com/regexp/regexp-tutorial.html
 
+一、简单教程：
 1、什么是正则表达式？
     正则表达式是由一个字符序列形成的搜索模式。
 
@@ -46,6 +48,12 @@
      patt.test("The best things in life are free!");
      
  8、使用 exec()
+ 
+ 
+ 
+ 二、详细教程
+ 
+ 
  
         
     
