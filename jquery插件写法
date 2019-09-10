@@ -1,0 +1,15 @@
+参考资料：
+https://blog.csdn.net/xixi880928/article/details/51769016
+
+一、jQuery插件开发方式
+    1、$.extend()
+    说明：
+    $.extend()相对简单，一般很少能够独立开发复杂插件，仅仅是在jQuery命名空间或者理解成jQuery身上添加了一个静态方法而以。
+    我们调用通过$.extend()添加的函数时直接通过$符号调用（$.myfunction()），而不需要选中DOM元素($('#example').myfunction())。
+    2、$.fn
+    说明：
+    一般插件开发用到的方式，可以利用jQuery强大的选择器带来的便利，以及将插件更好地运用于所选择的元素身上，使用的插件也大多是通过此种方式开发。
+    3、$.widget()
+    说明：
+    $.widget()是一种高级的开发模式
+    
