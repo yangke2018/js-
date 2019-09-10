@@ -13,3 +13,18 @@ https://blog.csdn.net/xixi880928/article/details/51769016
     说明：
     $.widget()是一种高级的开发模式
     
+二、实例
+    1、$.extend()实例
+        $.extend({
+        sayHello:function(name){
+            console.log('Hello,'+ (name?name:'aaa'))
+        }
+        })
+        $.sayHello()
+    
+    2、$.fn 实例
+        $.fn.pluginName = function(){
+            //在这里面,this指的是用jQuery选中的元素
+            //example :$('a'),则this=$('a')
+            this.css('color', 'red');
+        }
