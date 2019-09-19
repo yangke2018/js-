@@ -2,6 +2,7 @@
 https://www.jianshu.com/p/26c81fde22fb
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
 https://www.cnblogs.com/mmzuo-798/p/7402920.html
+https://www.cnblogs.com/pixabayhao/p/7239943.html
 
 一、变量的作用域
 
@@ -90,6 +91,7 @@ https://www.cnblogs.com/mmzuo-798/p/7402920.html
     //环境中有一个局部变量一个局部函数，通过匿名函数返回的对象的三个公共函数访问。
     
     4、闭包应用场景之为节点循环绑定click事件
+
     
 
 
