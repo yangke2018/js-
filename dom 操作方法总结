@@ -1,1 +1,73 @@
-dom 操作方法总结
+参考资料：
+https://www.cnblogs.com/wfblog/p/8862946.html
+
+1.创建元素
+    创建元素：document.createElement()
+    var div = document.createElement("div");
+    div.id = "myDiv";
+    div.className = "div1";
+    document.body.appendChild(div);
+    创建文本节点 ：document.createTextNode
+
+2.节点关系
+    父节点：parentNode
+    子节点：childNodes
+    兄弟节点：nextSibling，previousSibling
+    第一个或最后一个子节点：firstChild、lastChild
+
+3.节点元素关系
+    只算元素，不算文本节点。
+    children
+    ie9支持nextElementSibling previousElementSibling
+
+4.节点操作  
+    appendChild())用于向childNodes列表的末尾添加一个节点，并且返回这个新增的节点。
+    insetBefore()可以将节点插入到某个特定的位置。这个方法接受两个参数：要插入的节点和作为参照的节点。    
+    替换节点： replaceChild()
+    删除节点：removeChild()
+    克隆节点：cloneNode(true/false)
+    
+5.元素选择
+    querySelector、querySelectorAll(IE8及以上)
+    getElementById()
+    getElementsByTagName()
+    getElementsByName()
+    getElementsByClassName()
+    
+6.属性操作
+    setAttribute()
+       var div2 = document.getElementById("div2");
+        div2.setAttribute("class", "new_class");
+        div2.setAttribute("id", "new_id");
+    removeAttribute()
+        var div2 = document.getElementById("div2");
+        div2.removeAttribute("class");
+     getAttribute()
+         var div2 = document.getElementById("div2");
+        var attr = div2.getAttribute("class");
+        console.log(attr);
+     hasAttribute()
+     自定义属性data-*
+     
+ 7.事件  
+    addEventListener()
+    
+    removeEventListener()
+    注意：只能通过removeEventListener()解绑有名字的函数，对于绑定的匿名函数无法解除绑定。
+    注意：这里this指向触发事件的元素自身
+    
+    attachEvent()、detachEvent()IE8及以下使用这两个方法绑定和解绑事件，当然，IE9+也支持这个事件。但这个方法绑定的事件默认为冒泡也只有冒泡。
+    
+    阻止默认事件和冒泡
+      e.preventDefault(); // 阻止默认事件
+      e.stopPropagation(); // 阻止冒泡
+      
+    自定义事件：createEvent()
+    createEvent()用于创建一个新的 event ，而后这个 event 必须调用它的 init() 方法进行初始化。最后就可以在目标元素上使用dispatchEvent()调用新创建的event事件了。
+    
+  8.获取元素相关计算后的值
+  getComputedStyle()、currentStyle()
+  getBoundingClientRect()、getClientRects()
+        
+
+
