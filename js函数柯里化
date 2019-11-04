@@ -1,0 +1,21 @@
+参考资料：https://www.jianshu.com/p/2975c25e4d71
+
+实质是高阶函数的一个特殊用法
+柯里化，英语：Currying，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+
+1、简单实例
+  //普通add函数
+  function(x,y){
+    return x+y
+  }
+  
+  //Currying后
+  function curryingAdd(x){
+    return function(y){
+      return x+y
+    }
+  }
+  add(1,2)
+  curryingAdd(1)(2)
+  
+  2、Curring的好处
