@@ -3,6 +3,8 @@ https://www.cnblogs.com/wuxiaoshang/p/5835627.html
 https://www.cnblogs.com/yangguoe/p/8465092.html
 
 
-
+null > 0 //  null 尝试转型为number , 则为0 . 所以结果为 false, 
+null >= 0 //  null 尝试转为number ,则为0 , 结果为 true. 
+null == 0 // null在设计上，在此处不尝试转型. 所以 结果为false.
 
 
