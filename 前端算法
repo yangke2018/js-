@@ -5,4 +5,120 @@
       return str == str.split('').reverse().join('');
   }
   
-2、  
+2、去掉一组整型数组重复的值
+这道问题出现在诸多的前端面试题中，主要考察个人对Object的使用，利用key来进行筛选。
+
+let hashTable = {};
+  let data = [];
+  for(let i=0,l=arr.length;i<l;i++) {
+    if(!hashTable[arr[i]]) {
+      hashTable[arr[i]] = true;
+      data.push(arr[i]);
+    }
+  }
+  return data
+
+3、统计一个字符串出现最多的字母
+function findMaxDuplicateChar(str) {  
+  if(str.length == 1) {
+    return str;
+  }
+  let charObj = {};
+  for(let i=0;i<str.length;i++) {
+    if(!charObj[str.charAt(i)]) {
+      charObj[str.charAt(i)] = 1;
+    }else{
+      charObj[str.charAt(i)] += 1;
+    }
+  }
+  let maxChar = '',
+      maxValue = 1;
+  for(var k in charObj) {
+    if(charObj[k] >= maxValue) {
+      maxChar = k;
+      maxValue = charObj[k];
+    }
+  }
+  return maxChar;
+}
+module.exports = findMaxDuplicateChar;  
+
+4、排序算法
+冒泡排序
+function bubbleSort(arr) {  
+    for(let i = 0,l=arr.length;i<l-1;i++) {
+        for(let j = i+1;j<l;j++) { 
+          if(arr[i]>arr[j]) {
+                let tem = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tem;
+            }
+        }
+    }
+    return arr;
+}
+module.exports = bubbleSort;  
+
+快速排序
+function quickSort(arr) {
+ 
+    if(arr.length<=1) {
+        return arr;
+    }
+    let leftArr = [];
+    let rightArr = [];
+    let q = arr[0];
+    for(let i = 1,l=arr.length; i<l; i++) {
+        if(arr[i]>q) {
+            rightArr.push(arr[i]);
+        }else{
+            leftArr.push(arr[i]);
+        }
+    }
+    return [].concat(quickSort(leftArr),[q],quickSort(rightArr));
+}
+module.exports = quickSort;  
+
+5、 不借助临时变量，进行两个整数的交换
+输入 a = 2, b = 4 输出 a = 4, b =2
+function swap(a , b) {  
+  b = b - a;
+  a = a + b;
+  b = a - b;
+  return [a,b];
+}
+module.exports = swap;  
+
+7、找出下列正数组的最大差值比如:
+输入 [10,5,11,7,8,9]
+ 
+输出 6
+
+8、随机生成指定长度的字符串
+
+9、实现类似getElementsByClassName 的功能
+function queryClassName(node, name) {  
+  var starts = '(^|[ \n\r\t\f])',
+       ends = '([ \n\r\t\f]|$)';
+  var array = [],
+        regex = new RegExp(starts + name + ends),
+        elements = node.getElementsByTagName("*"),
+        length = elements.length,
+        i = 0,
+        element;
+    while (i < length) {
+        element = elements[i];
+        if (regex.test(element.className)) {
+            array.push(element);
+        }
+        i += 1;
+    }
+    return array;
+}
+
+10、使用JS 实现二叉查找树(Binary Search Tree)？？？
+
+
+
+
+
