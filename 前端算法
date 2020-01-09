@@ -1,0 +1,8 @@
+参考资料：https://blog.csdn.net/weixin_38984353/article/details/80393412
+
+1、判断一个单词是否是回文？
+  function checkPalindrom(str) {  
+      return str == str.split('').reverse().join('');
+  }
+  
+2、  
